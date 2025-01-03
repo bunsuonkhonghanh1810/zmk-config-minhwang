@@ -1,0 +1,6 @@
+if SHIELD_MINHWANG
+
+config ZMK_KEYBOARD_NAME
+    default "minhwang"
+
+endif
