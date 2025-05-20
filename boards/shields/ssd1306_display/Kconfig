@@ -1,3 +1,0 @@
-config SHIELD_SSD1306_DISPLAY
-    bool "SSD1306 Display Shield"
-    default y

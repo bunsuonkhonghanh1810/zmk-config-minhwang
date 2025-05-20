@@ -1,0 +1,2 @@
+config SHIELD_SSD1306_DISPLAY
+    def_bool $(shields_list_contains, SSD1306_display)
