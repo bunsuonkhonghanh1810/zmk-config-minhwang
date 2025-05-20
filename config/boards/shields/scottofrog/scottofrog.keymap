@@ -1,10 +1,20 @@
 / {
     keymap {
         compatible = "zmk,keymap";
-        base_layer {
+
+        default_layer {
             bindings = <
                 &kp A &kp B &kp C &kp D
                 &kp E &kp F &kp G &kp H
+                &mo 1 &kp I &kp J &kp K
+            >;
+        };
+
+        layer_1 {
+            bindings = <
+                &trans &trans &kp VOL_UP &kp VOL_DOWN
+                &none &none &none &none
+                &kp ESC &kp TAB &kp BSPC &kp RET
             >;
         };
     };
