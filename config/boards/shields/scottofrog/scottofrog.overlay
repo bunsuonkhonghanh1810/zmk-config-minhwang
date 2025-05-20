@@ -48,13 +48,13 @@
     pinctrl-0 = <&i2c1_default>;
     pinctrl-names = "default";
 
-    ssd1306@3c {
+    ssd1306: ssd1306@3c { // ← Thêm nhãn ssd1306 ở đây
         compatible = "solomon,ssd1306fb-i2c";
         reg = <0x3c>;
         label = "SSD1306";
         width = <128>;
         height = <64>;
-        reset-gpios = <&gpio0 18 GPIO_ACTIVE_LOW>; // nếu có
+        reset-gpios = <&gpio0 18 GPIO_ACTIVE_LOW>;
     };
 };
 
