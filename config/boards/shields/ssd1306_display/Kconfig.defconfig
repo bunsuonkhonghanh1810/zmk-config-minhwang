@@ -1,6 +1,0 @@
-if SHIELD_SSD1306_DISPLAY
-
-config ZMK_KEYBOARD_NAME
-    default "SSD1306_display"
-
-endif
