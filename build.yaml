@@ -21,7 +21,3 @@
 include:
   - board: nice_nano_v2
     shield: scottofrog
-
-env:
-  ZMK_REPO: bunsuonkhonghanh1810/zmk
-  ZMK_BRANCH: main
