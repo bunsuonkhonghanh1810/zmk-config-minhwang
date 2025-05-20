@@ -1,39 +1,25 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
 
-/* đặt bên ngoài khối root */
-&i2c0 {
-    compatible = "nordic,nrf-twim";
-    status = "okay";
-    pinctrl-0 = <&i2c0_default>;
-    pinctrl-1 = <&i2c0_sleep>;         // ✅ BẮT BUỘC: cần đủ 2 pinctrl group
-    pinctrl-names = "default", "sleep"; // ✅ BẮT BUỘC: đủ 2 chuỗi
+/soc {
+    i2c0: i2c@40003000 {
+        compatible = "nordic,nrf-twim";
+        status = "okay";
+        pinctrl-0 = <&i2c0_default>;
+        pinctrl-1 = <&i2c0_sleep>;
+        pinctrl-names = "default", "sleep";
 
-    ssd1306: ssd1306@3c {
-        compatible = "solomon,ssd1306fb-i2c";
-        reg = <0x3c>;
-        label = "SSD1306";
-        width = <128>;
-        height = <64>;
-        reset-gpios = <&gpio0 18 GPIO_ACTIVE_LOW>;
-    };
-};
-
-&pinctrl {
-    i2c0_default: i2c0_default {
-        group1 {
-            psels = <NRF_PSEL(TWIM_SCL, 0, 26)>,
-                    <NRF_PSEL(TWIM_SDA, 0, 27)>;
-        };
-    };
-
-    i2c0_sleep: i2c0_sleep {
-        group1 {
-            psels = <NRF_PSEL(TWIM_SCL, 0, 26)>,
-                    <NRF_PSEL(TWIM_SDA, 0, 27)>;
+        ssd1306: ssd1306@3c {
+            compatible = "solomon,ssd1306fb-i2c";
+            reg = <0x3c>;
+            label = "SSD1306";
+            width = <128>;
+            height = <64>;
+            reset-gpios = <&gpio0 18 GPIO_ACTIVE_LOW>;
         };
     };
 };
+
 
 / {
     chosen {
