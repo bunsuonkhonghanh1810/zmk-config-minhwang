@@ -8,7 +8,7 @@
     pinctrl-0 = <&i2c0_default>;
     pinctrl-1 = <&i2c0_sleep>;         // ✅ BẮT BUỘC: cần đủ 2 pinctrl group
     pinctrl-names = "default", "sleep"; // ✅ BẮT BUỘC: đủ 2 chuỗi
-
+    
     ssd1306: ssd1306@3c {
         compatible = "solomon,ssd1306fb-i2c";
         reg = <0x3c>;
