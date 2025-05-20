@@ -4,6 +4,8 @@
     chosen {
         zmk,kscan = &kscan;
         zmk,matrix_transform = &transform;
+
+        zephyr_display = &ssd1306;
     };
 
     kscan: kscan {
