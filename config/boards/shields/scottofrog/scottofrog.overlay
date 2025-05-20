@@ -1,16 +1,24 @@
 &i2c1 {
+    compatible = "nordic,nrf-twim";
     status = "okay";
+    pinctrl-0 = <&i2c1_default>;
+    pinctrl-names = "default";
 
     ssd1306@3c {
-        compatible = "solomon,ssd1306fb";
-        reg = <0x3C>;
+        compatible = "solomon,ssd1306fb-i2c";
+        reg = <0x3c>;
         label = "SSD1306";
         width = <128>;
         height = <64>;
-        segment-offset = <0>;
-        page-offset = <0>;
-        display-offset = <0>;
-        reset-gpios = <&gpio0 10 GPIO_ACTIVE_LOW>; // bỏ nếu không có chân reset
+        reset-gpios = <&gpio0 18 GPIO_ACTIVE_LOW>; // nếu có
     };
 };
-    
+
+&pinctrl {
+    i2c1_default: i2c1_default {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SCL, 0, 26)>,
+                    <NRF_PSEL(TWIM_SDA, 0, 27)>;  // thay đúng chân I2C bạn đang dùng
+        };
+    };
+};
