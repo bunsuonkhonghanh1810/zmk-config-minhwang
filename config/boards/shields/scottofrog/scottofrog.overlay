@@ -10,11 +10,19 @@
     pinctrl-names = "default", "sleep"; // ✅ BẮT BUỘC: đủ 2 chuỗi
     
     ssd1306: ssd1306@3c {
-        compatible = "solomon,ssd1306fb";
+        compatible = "solomon,ssd1306fb-i2c";
         reg = <0x3c>;
         label = "SSD1306";
         width = <128>;
         height = <64>;
+        segment-offset = <0>;         // Add this required property
+        page-offset = <0>;            // This is likely also required
+        display-offset = <0>;         // This might be required too
+        multiplex-ratio = <63>;       // For 64-pixel height display (height-1)
+        segment-remap;                // Typically needed
+        com-invdir;                   // Typically needed
+        com-sequential;               // Typically needed
+        prechargep = <0x22>;          // Recommended default
         reset-gpios = <&gpio0 18 GPIO_ACTIVE_LOW>;
     };
 };
